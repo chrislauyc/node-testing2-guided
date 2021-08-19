@@ -7,7 +7,10 @@ test('it is the correct environment for the tests', () => {
 describe('Hobbit db access functions', () => {
 
   describe('Hobbit.getAll', () => {
+    it('resolves to all hobbits in the hobbits table', async () => {
 
+    })
+    it('resolves the the correct hobbit shapes' , () )
   })
 
   describe('Hobbit.insert', () => {
