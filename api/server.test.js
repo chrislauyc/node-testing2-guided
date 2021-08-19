@@ -20,6 +20,7 @@ describe('[GET] /hobbits', () => {
   })
   it('should return JSON', async () => {
     const res = await request(server).get('/hobbits')
-    expect(res.type).toBe()
+    console.log(res.header)
+    expect(res.type).toBe('application/json')
   })
 })
