@@ -34,6 +34,7 @@ describe('[POST] /hobbits', () => {
     expect(res.status).toBe(422)
   })
   it('should return a 201 OK status', async () => {
+    // you!
   })
   it('responds with the newly created hobbit', () => {
   })
