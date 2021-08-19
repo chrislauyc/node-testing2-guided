@@ -15,6 +15,6 @@ afterAll(async () => {
 
 describe('[GET] /hobbits', () => {
   it('should return a 200 OK status', async () => {
-    const res = await request()
+    const res = await request(server).get('/hobbits')
   })
 })
