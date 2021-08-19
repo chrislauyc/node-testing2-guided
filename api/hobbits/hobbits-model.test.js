@@ -32,6 +32,8 @@ describe('Hobbit db access functions', () => {
   })
 
   describe('Hobbit.insert', () => {
-
+    it('adds a new hobbit to the table', async () => {
+      
+    })
   })
 })
