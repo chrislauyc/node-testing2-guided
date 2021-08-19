@@ -25,6 +25,7 @@ describe('Hobbit db access functions', () => {
       expect(hobbits[0]).toHaveProperty('id', 1)
       expect(hobbits[0]).toHaveProperty('name', 'sam')
 
+      expect(hobbits[1]).toMatchObject({ id: 2, name: 'frodo' })
     })
   })
 
