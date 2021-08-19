@@ -9,6 +9,9 @@ beforeAll(async () => {
   await dbConfig.migrate.rollback()
   await dbConfig.migrate.latest()
 })
+beforeEach(async () => {
+  
+})
 
 describe('Hobbit db access functions', () => {
 
