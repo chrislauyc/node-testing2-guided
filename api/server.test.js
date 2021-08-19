@@ -38,5 +38,6 @@ describe('[POST] /hobbits', () => {
     expect(res.status).toBe(201)
   })
   it('responds with the newly created hobbit', () => {
+    // this?
   })
 })
