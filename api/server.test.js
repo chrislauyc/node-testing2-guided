@@ -23,4 +23,7 @@ describe('[GET] /hobbits', () => {
     console.log(res.header)
     expect(res.type).toBe('application/json')
   })
+  it('should return a list of hobbits', async () => {
+    // you
+  })
 })
