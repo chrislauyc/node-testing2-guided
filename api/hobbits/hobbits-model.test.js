@@ -37,5 +37,6 @@ describe('Hobbit db access functions', () => {
       // assert that the db holds 5 hobbits
       await Hobbit.insert({ name: 'bilbo' })
     })
+    it('')
   })
 })
