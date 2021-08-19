@@ -22,7 +22,9 @@ describe('Hobbit db access functions', () => {
     })
     it('resolves the the correct hobbit shapes', async () => {
       const hobbits = await Hobbit.getAll()
-      expect(hob)
+      expect(hobbits[0]).toHaveProperty('id', 1)
+      expect(hobbits[0]).toHaveProperty('name', 'sam')
+
     })
   })
 
