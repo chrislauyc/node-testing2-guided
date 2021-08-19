@@ -24,6 +24,7 @@ describe('[GET] /hobbits', () => {
     expect(res.type).toBe('application/json')
   })
   it('should return a list of hobbits', async () => {
-    // you
+    const res = await request(server).get('/hobbits')
+    expect(res.body).toHaveLength(4)
   })
 })
