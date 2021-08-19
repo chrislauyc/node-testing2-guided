@@ -7,7 +7,8 @@ beforeAll(async () => {
   await db.migrate.latest()
 })
 beforeEach(async () => {
-  await db.seed.run()
+  await db.seed.run() // this makes each test super predictable
+  // because the table contains the same 4 hobbits
 })
 afterAll(async () => {
   await db.destroy()
