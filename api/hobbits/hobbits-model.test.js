@@ -21,7 +21,8 @@ describe('Hobbit db access functions', () => {
       expect(hobbits.length).toBe(4)
     })
     it('resolves the the correct hobbit shapes', async () => {
-
+      const hobbits = await Hobbit.getAll()
+      expect(hob)
     })
   })
 
