@@ -32,8 +32,8 @@ function validateHobbit(req, res, next) {
   }
 }
 
-server.post("/hobbits", validateHobbit, (req, res) => {
-  res.status(201).end()
+server.post("/hobbits", validateHobbit, async (req, res) => {
+  res.status(201).json(await Hobbits.insert(req.body))
 });
 
 server.delete("/hobbits/:id", (req, res) => {
