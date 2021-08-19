@@ -28,3 +28,6 @@ describe('[GET] /hobbits', () => {
     expect(res.body).toHaveLength(4)
   })
 })
+describe('[POST] /hobbits', () => {
+  it()
+})
