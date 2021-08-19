@@ -30,7 +30,7 @@ describe('[GET] /hobbits', () => {
 })
 describe('[POST] /hobbits', () => {
   it('responds with a 422 if no name in payload', async () => {
-    const res = await request(server).post('/hobbits').send({})
+    const res = await request(server).post('/hobbits').send({}) // json payload
     expect(res.status).toBe(422)
   })
   it('should return a 201 OK status', async () => {
