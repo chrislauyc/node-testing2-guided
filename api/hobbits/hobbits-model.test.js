@@ -40,7 +40,7 @@ describe('Hobbit db access functions', () => {
       expect(rows).toHaveLength(5)
     })
     it('resolves to the newly inserted hobbit', async () => {
-
+      // false
     })
   })
 })
