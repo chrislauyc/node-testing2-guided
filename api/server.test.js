@@ -37,7 +37,8 @@ describe('[POST] /hobbits', () => {
     const res = await request(server).post('/hobbits').send({ name: 'bilbo'})
     expect(res.status).toBe(201)
   })
-  it('responds with the newly created hobbit', () => {
-    // this?
+  it('responds with the newly created hobbit', async () => {
+    const res = await request(server).post('/hobbits').send({ name: 'bilbo'})
+    expect(res.body).toBe(201)
   })
 })
