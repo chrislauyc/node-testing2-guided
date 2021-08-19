@@ -40,7 +40,9 @@ describe('Hobbit db access functions', () => {
       expect(rows).toHaveLength(5)
     })
     it('resolves to the newly inserted hobbit', async () => {
-      // false
+      const hobbitzez = { name: 'Smeagle' }
+      const newHobbit = await Hobbit.insert(hobbitzez)
+      expect(newHobbit).toMatchObject({id: 5, name: 'Smeagle'})
     })
   })
 })
