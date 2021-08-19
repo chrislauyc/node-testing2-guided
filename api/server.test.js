@@ -18,4 +18,5 @@ describe('[GET] /hobbits', () => {
     const res = await request(server).get('/hobbits')
     expect(res.status).toBe(200)
   })
+  it('')
 })
