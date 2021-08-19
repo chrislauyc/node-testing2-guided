@@ -29,5 +29,8 @@ describe('[GET] /hobbits', () => {
   })
 })
 describe('[POST] /hobbits', () => {
-  it()
+  it('should return a 201 OK status', async () => {
+  })
+  it('responds with a 422 if no name in payload', () => {
+  })
 })
