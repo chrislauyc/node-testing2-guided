@@ -9,7 +9,7 @@ describe('Hobbit db access functions', () => {
   describe('Hobbit.getAll', () => {
     it('resolves to all hobbits in the hobbits table', async () => {
       const hobbits = await Hobbit.getAll()
-      expect(hobbits).
+      expect(hobbits.length).toBe(4)
     })
     it('resolves the the correct hobbit shapes', async () => {
 
