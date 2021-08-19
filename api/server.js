@@ -33,7 +33,7 @@ function validateHobbit(req, res, next) {
 }
 
 server.post("/hobbits", validateHobbit, (req, res) => {
-  res.end()
+  res.status()
 });
 
 server.delete("/hobbits/:id", (req, res) => {
