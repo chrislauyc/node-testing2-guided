@@ -36,7 +36,11 @@ describe('Hobbit db access functions', () => {
       // get a hobbit in there using insert
       // assert that the db holds 5 hobbits
       await Hobbit.insert({ name: 'bilbo' })
+      const rows = await db('hobbits')
+      
     })
-    it('')
+    it('resolves to the newly inserted hobbit', async () => {
+
+    })
   })
 })
