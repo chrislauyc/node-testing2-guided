@@ -12,3 +12,7 @@ beforeEach(async () => {
 afterAll(async () => {
   await db.destroy()
 })
+
+describe('[GET] /hobbits', () => {
+  
+})
