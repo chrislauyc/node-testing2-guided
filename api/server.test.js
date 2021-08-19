@@ -43,5 +43,5 @@ describe('[POST] /hobbits', () => {
     expect(res.body).toMatchObject({ name: 'bilbo'})
     res = await request(server).post('/hobbits').send({ name: 'smeagol'})
     expect(res.body).toMatchObject({ name: 'smeagol'})
-  }, 10)
+  }, 500)
 })
