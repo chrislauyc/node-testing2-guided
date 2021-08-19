@@ -24,6 +24,12 @@ server.get("/hobbits/id", (req, res) => {
   res.end()
 });
 
+function validateHobbit(req, res, next) {
+  if (!req.body.name || !req.body.name.trim()) {
+    res.status(422).
+  }
+}
+
 server.post("/hobbits", (req, res) => {
   res.end()
 });
