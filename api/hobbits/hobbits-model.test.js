@@ -7,7 +7,7 @@ test('it is the correct environment for the tests', () => {
 
 beforeAll(async () => {
   await dbConfig.migrate.rollback()
-  await dbConfig.migrate.migrate()
+  await dbConfig.migrate.latest()
 })
 
 describe('Hobbit db access functions', () => {
