@@ -1,4 +1,4 @@
-const dbConfig = require('../../data/dbConfig')
+const db = require('../../data/dbConfig')
 const Hobbit = require('./hobbits-model')
 
 test('it is the correct environment for the tests', () => {
@@ -6,11 +6,11 @@ test('it is the correct environment for the tests', () => {
 })
 
 beforeAll(async () => {
-  await dbConfig.migrate.rollback()
-  await dbConfig.migrate.latest()
+  await db.migrate.rollback()
+  await db.migrate.latest()
 })
 beforeEach(async () => {
-  
+  await db.seed.run()
 })
 
 describe('Hobbit db access functions', () => {
