@@ -29,8 +29,10 @@ describe('[GET] /hobbits', () => {
   })
 })
 describe('[POST] /hobbits', () => {
+  it('responds with a 422 if no name in payload', () => {
+  })
   it('should return a 201 OK status', async () => {
   })
-  it('responds with a 422 if no name in payload', () => {
+  it('responds with the newly created hobbit', () => {
   })
 })
