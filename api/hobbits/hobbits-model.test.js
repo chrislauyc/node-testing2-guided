@@ -42,7 +42,7 @@ describe('Hobbit db access functions', () => {
     it('resolves to the newly inserted hobbit', async () => {
       const hobbitzez = { name: 'Smeagle' }
       const newHobbit = await Hobbit.insert(hobbitzez)
-      expect(newHobbit).toMatchObject({id: 5, name: 'Smeagle'})
+      expect(newHobbit).toMatchObject({ id: 5, name: 'Smeagle' })
     })
   })
 })
