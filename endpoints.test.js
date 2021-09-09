@@ -31,32 +31,76 @@ describe("test api",()=>{
         });
         test("responds with the right format of hobbits",async()=>{
             const [id] = await db("hobbits").insert(frodo);
-            const res = await request(server).get(`/hobbits/${id}`);
+            const res = await request(server).get("/hobbits");
             expect(res.body[0]).toMatchObject({id,...frodo});
         });
     });
     describe("[GET] /hobbits/:id",()=>{
-        test("responds with 201",()=>{
-            // const [id] = await db("hobbits").insert(frodo);
-            // const res = 
+        test("responds with 200",async()=>{
+            const [id] = await db("hobbits").insert(frodo);
+            const res = await request(server).get(`/hobbits/${id}`);
+            expect(res.status).toBe(200);
         });
-        test.todo("responds with the correct object");
-        test.todo("responds with 404 if id does not exist");
+        test("responds with the correct object",async()=>{
+            const [id] = await db("hobbits").insert(frodo);
+            const res = await request(server).get(`/hobbits/${id}`);
+            expect(res.body).toMatchObject({id,...frodo});
+        });
+        test("responds with 404 if id does not exist",async()=>{
+            const res = await request(server).get(`/hobbits/${id}`);
+            expect(res.status).toBe(404);
+        });
     });
     describe("[POST] /hobbits",()=>{
-        test("responds with the newly created object",async()=>{
-            const res = await request(server).post("/hobbits").send(sam);
-            expect(res.body).toMatchObject({id,...sam});
+        test("hobbit added to db",async()=>{
+            await request(server).post("/hobbits").send(sam)
+            expect(await db("hobbits")).toHaveLength(1);
         });
-        test.todo("hobbit added to db");
-        test.todo("responds with the correct object");
+        test("responds with 201",async()=>{
+            const res = await request(server).post("/hobbits").send(sam)
+            expect(res.status).toBe(201);
+        });
+        
+        test("responds with the correct object",async()=>{
+            const res = await request(server).post("/hobbits").send(sam);
+            expect(res.body).toMatchObject({id:1,...sam});
+        });
     });
     
     describe("[PUT] /hobbits/:id",()=>{
-        test.todo("put");
+        test("responds with 200",async()=>{
+            const [id] = await db("hobbits").insert(sam);
+            const res = await request(server).put(`/hobbits/${id}`).send({...sam,name:"SAM"});
+            expect(res.status).toBe(200);
+        });
+        test("updated hobbit",async()=>{
+            const [id] = await db("hobbits").insert(sam);
+            await request(server).put(`/hobbits/${id}`).send({...sam,name:"SAM"});
+            const updatedHobbit = await db("hobbits").where({id}).first();
+            expect(updatedHobbit).toMatchObject({...sam,id,name:"SAM"});
+        });
+        test("responds with the updated object",async()=>{
+            const [id] = await db("hobbits").insert(sam);
+            const res = await request(server).put(`/hobbits/${id}`).send({...sam,name:"SAM"});
+            expect(res.body).toMatchObject({...sam,id,name:"SAM"});
+        });
     });
     
     describe("[DELETE] /hobbits/:id",()=>{
-        test.todo("delete");
+        test("responds with 200",async()=>{
+            const [id] = await db("hobbits").insert(sam);
+            const res = await request(server).delete(`/hobbits/${id}`);
+            expect(res.status).toBe(200);
+        });
+        test("deleted hobbit from db",async()=>{
+            const [id] = await db("hobbits").insert(sam);
+            await request(server).delete(`/hobbits/${id}`);
+            expect(await db("hobbits")).toHaveLength(0);
+        });
+        test("responds with the deleted hobbit",async()=>{
+            const [id] = await db("hobbits").insert(sam);
+            const res = await request(server).delete(`/hobbits/${id}`);
+            expect(res.body).toMatchObject({id,...sam});
+        });
     });
 })

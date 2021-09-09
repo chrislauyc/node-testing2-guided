@@ -20,8 +20,13 @@ server.get("/hobbits", (req, res) => {
     });
 });
 
-server.get("/hobbits/:id", (req, res) => {
-  res.end()
+server.get("/hobbits/:id", async(req, res) => {
+  try{
+    res.status(200).json(await Hobbits.getById(req.params.id));
+  }
+  catch(err){
+    next(err);
+  }
 });
 
 server.post("/hobbits", async(req, res) => {
@@ -33,12 +38,24 @@ server.post("/hobbits", async(req, res) => {
   }
 });
 
-server.delete("/hobbits/:id", (req, res) => {
-  res.end()
+server.delete("/hobbits/:id", async(req, res) => {
+  try{
+    res.status(200).json(await Hobbits.remove(req.params.id));
+  }
+  catch(err){
+    next(err);
+  }
 });
 
-server.put("/hobbits/:id", (req, res) => {
-  res.end()
+server.put("/hobbits/:id", async(req, res) => {
+  try{
+    res.status(200).json(await Hobbits.update(req.params.id,req.body));
+  }
+  catch(err){
+    next(err);
+  }
 });
-
+server.use((err,req,res,next)=>{
+  res.status(500).json(err);
+});
 module.exports = server;
