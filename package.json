@@ -6,7 +6,8 @@
     "start": "node index.js",
     "migrate": "knex migrate:latest",
     "seed": "knex seed:run",
-    "ketchup": "git fetch && git reset --hard origin/lecture"
+    "ketchup": "git fetch && git reset --hard origin/lecture",
+    "test" : "cross-env NODE_ENV=testing jest --watch --verbose --runInBand"
   },
   "dependencies": {
     "dotenv": "^10.0.0",
@@ -15,8 +16,14 @@
     "sqlite3": "^5.0.2"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "eslint": "^7.31.0",
-    "nodemon": "^2.0.12"
+    "jest": "^27.1.1",
+    "nodemon": "^2.0.12",
+    "supertest": "^6.1.6"
+  },
+  "jest": {
+    "testEnvironment": "node"
   },
   "repository": {
     "type": "git",
